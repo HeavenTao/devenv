@@ -6,7 +6,7 @@ COPY mirrorlist /etc/pacman.d/
 # update
 RUN pacman -Syyu --noconfirm
 # install
-RUN pacman -Sy --noconfirm nodejs-lts-hydrogen npm fish xclip neovim python python-pip python-virtualenv git starship python-pynvim 
+RUN pacman -Sy --noconfirm nodejs-lts-hydrogen npm fish xclip neovim python python-pip python-virtualenv git starship python-pynvim zig
 # npm mirrorlist
 RUN npm set registry https://registry.npmmirror.com
 # pip mirrorlist
@@ -17,8 +17,4 @@ RUN npm install -g neovim
 RUN git config --global credential.helper store
 # lang
 ENV LANG en_US.utf8
-# create user
-RUN useradd -m -s /usr/bin/fish -g wheel ht
-# fish config
-RUN echo "starship init fish | source" >> ~/.config/fish/config.fish
 RUN echo "Done!"
